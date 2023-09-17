@@ -5,7 +5,10 @@ export function useForm(initialState, nputErrorState) {
   const [inputErrors, setInputErrorrs] = useState(nputErrorState);
   const handleChangeForm = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setInputField({ ...inputField, [name]: value });
+    setInputField((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
   };
   const handleOnBlurChangeForm = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

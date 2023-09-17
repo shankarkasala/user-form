@@ -11,7 +11,7 @@ export interface FormProps {
 
 const initialState = {
   name: '',
-  age: 0,
+  age: null,
   location: '',
   username: '',
 };
@@ -90,7 +90,7 @@ export function Form() {
         <span>Users List</span>
         {showData.map((res: FormProps) => {
           return (
-            <div className="displayData">
+            <div key={res.name} className="displayData">
               <span>name : {res.name}</span>
               <span> age : {res.age}</span>
               <span>location : {res.location}</span>
